@@ -1,0 +1,26 @@
+{
+  "name": "stopwatch",
+  "version": "1.0.0",
+  "description": "My custom stopwatch project",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarekO-Dev/stopwatch.git"
+  },
+  "keywords": [
+    "stopwatch"
+  ],
+  "author": "Marek Olechno",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MarekO-Dev/stopwatch/issues"
+  },
+  "homepage": "https://github.com/MarekO-Dev/stopwatch#readme",
+  "dependencies": {
+    "man-db": "^1.0.3"
+  }
+}

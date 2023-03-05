@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch 2</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <div id="wrapper">
+
+        <div id="screen"><p id="minutes_display">0</p><p class="dividers">:</p><p id="seconds_display">0</p><p class="dividers">:</p><p id="milliseconds_display">0</p></div>
+        <div id="laps_wrapper">
+            <p class="laps_input" id="lap1"></p>
+            <p class="laps_input" id="lap2"></p>
+            <p class="laps_input" id="lap3"></p>
+            <p class="laps_input" id="lap4"></p>
+            <p class="laps_input" id="lap5"></p>
+        </div>
+
+        <div id="buttons_wrapper">
+
+            <!-- <input class="buttons_set" id="minusSpeed" type="button" value="- Speed"/> !-->
+    
+            <input class="buttons_f" id="startBtn" type="button" value="Start"/>
+            <input class="buttons_f" id="stopBtn" type="button" value="Stop"/>
+            <input class="buttons_f" id="resetBtn" type="button" value="Reset"/>
+            <input class="buttons_f" id="lapBtn" type="button" value="Lap"/>
+    
+            
+            <!--<input class="buttons_set" id="plusSpeed" type="button" value="+ Speed"/>!-->
+    
+        </div>
+    </div>
+
+    <script type="module" src="main.js"></script>
+</body>
+</html>
