@@ -1,20 +1,109 @@
+@media only screen and (max-width: 400px) {
+    *{
+        padding: 0px;
+        margin: 0 auto;
+    }
+    
+    p{
+        display: inline-block;
+        position: absolute;
+    }
+    body{
+        background-color: #000;
+        color:antiquewhite;
+    }
+    .dividers{
+        font-size: 8px;
+        position: static;
+        margin-left: 10px;
+    }
+    #screen{
+        position: absolute;
+        margin-left: 45%;
+        margin-top: 10px;
+    }
+    #laps_wrapper{
+        background-color: dimgray;
+        position: absolute;
+    
+        margin-left: 30%;
+        margin-top: 20%;
+    
+        width: 300px;
+        height: 600px;
+    }
+    #buttons_wrapper{
+        position: absolute;
+    
+        margin-top: 10%;
+        margin-left: 40%;
+    }
+    
+    .buttons_f, .buttons_set{
+        padding: 10px;
+    
+        width: 130px;
+        font-size: 18px;
+        position: absolute;
+        border-radius: 2px;
+    }
+    
+    .buttons_f:hover, .buttons_set:hover{
+        background-color: burlywood;
+    }
+    
+    .laps_input{
+        display: block;
+    }
+    
+    #stopBtn{
+        display: none;
+    }
+    #resetBtn{
+        margin-left: 30px;
+    }
+    
+    #lapBtn{
+        margin-left: 70px;
+    }
+    .timer_displayers{
+        font-size: 16px;
+    }
+    #milliseconds_display{
+        margin-left: 12px;
+    }
+    #seconds_display{
+    
+        margin-left: 12px;
+    }
+    #minutes_display{
+    
+        margin-left: 12px;
+    }
+  }
+
+*{
+    padding: 0px;
+    margin: 0 auto;
+}
+
 p{
     display: inline-block;
-
-    margin-left: 20px;
-
+    position: absolute;
 }
 body{
     background-color: #000;
     color:antiquewhite;
 }
 .dividers{
-    font-size: 20px;
+    font-size: 10px;
+    position: static;
+    margin-left: 30px;
 }
 #screen{
     position: absolute;
-
     margin-left: 45%;
+    margin-top: 100px;
 }
 #laps_wrapper{
     background-color: dimgray;
@@ -38,7 +127,7 @@ body{
 
     width: 130px;
     font-size: 30px;
-
+    position: absolute;
     border-radius: 7px;
 }
 
@@ -48,4 +137,29 @@ body{
 
 .laps_input{
     display: block;
+}
+
+#stopBtn{
+    display: none;
+}
+#resetBtn{
+    margin-left: 150px;
+}
+
+#lapBtn{
+    margin-left: 300px;
+}
+.timer_displayers{
+    font-size: 24px;
+}
+#milliseconds_display{
+    margin-left: 12px;
+}
+#seconds_display{
+
+    margin-left: 12px;
+}
+#minutes_display{
+
+    margin-left: 12px;
 }
