@@ -1,4 +1,4 @@
-const DEFAULT_TIMEOUT = 100; // if this settings is 100 then 10 of these = 1 second
+const DEFAULT_TIMEOUT = 10; // if this settings is 100 then 10 of these = 1 second
 
 export class Timer{
     constructor(name){
@@ -6,13 +6,24 @@ export class Timer{
     }
 
     _busy = null;
-    value = 0; 
 
+    value = {Minutes: 0, Seconds: 0, Milliseconds: DEFAULT_TIMEOUT};
+    PilnujCzasu (){
+        if(this.value.Milliseconds >= 1000){
+            this.value.Milliseconds = DEFAULT_TIMEOUT;
+            this.value.Seconds++;
+            if(this.value.Seconds > 60){
+                this.value.Minutes++;
+            }
+        }
+    }
     startTimer () {
+        this._busy = 1;
+        
         this._busy = setTimeout(() => {
             //___________________________
-
-            this.value++; 
+            this.PilnujCzasu();
+            this.value.Milliseconds += DEFAULT_TIMEOUT; 
 
             //___________________________
             this.startTimer();
@@ -25,7 +36,9 @@ export class Timer{
     }
 
     resetClock () {
-        this.value = 0;
+        this.value.Milliseconds = DEFAULT_TIMEOUT;
+        this.value.Seconds = 0;
+        this.value.Minutes = 0;
     }
 
     get busy () {
@@ -34,11 +47,9 @@ export class Timer{
     get Name () {
         return this.name;
     }
+    get Value () {
+        return this.value;
+    }
 }
 
-export const Buttons = {
-    startButton: {htmlElement: document.getElementById('startBtn'), cssQuery: '#startBtn'},
-    stopButton: {htmlElement: document.getElementById('stopBtn'), cssQuery: '#stopBtn'},
-    resetButton: {htmlElement: document.getElementById('resetBtn'), cssQuery: '#resetBtn'},
-    lapButton: {htmlElement: document.getElementById('lapBtn'), cssQuery: '#lapBtn'}
-};
+
