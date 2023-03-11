@@ -13,9 +13,11 @@ export class Timer{
             this.value.Milliseconds = DEFAULT_TIMEOUT;
             this.value.Seconds++;
             if(this.value.Seconds > 60){
+                this.value.Seconds = 0;
                 this.value.Minutes++;
             }
         }
+        
     }
     startTimer () {
         this._busy = 1;

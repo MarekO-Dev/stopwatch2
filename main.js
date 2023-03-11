@@ -22,15 +22,28 @@ const MainTimer = new Timer('main_timer');
 
 // Define Animations
 
-const Animations = [
-    new Animation(startButton.cssQuery, 'shake', undefined, 20),
-    new Animation(stopButton.cssQuery, 'breath', undefined, 10),
-    new Animation(resetButton.cssQuery, undefined, undefined, 90),
-    new Animation(lapButton.cssQuery, undefined, undefined, 90),
 
-    new Animation(Display.milliseconds.cssQuery, undefined, undefined, 50),
-    new Animation(Display.seconds.cssQuery, undefined, undefined, 50),
-    new Animation(Display.minutes.cssQuery, undefined, undefined, 50)
+/* -----------------------------------------
+    TEST function
+------------------------------------------*/
+function setLifespan(lifespanMS = 10000, isRandom = false){
+    const minLIFESPAN = 2000
+    const randomLifespan = Math.floor(Math.random()*(lifespanMS - minLIFESPAN) + 1)+minLIFESPAN;
+    console.log(randomLifespan);
+    return randomLifespan;
+}
+/* -----------------------------------------
+    TEST function
+------------------------------------------*/
+const Animations = [
+    new Animation(startButton.cssQuery, 'shake', undefined, 170),
+    new Animation(stopButton.cssQuery, 'shake-crazy', undefined, 2),
+    new Animation(resetButton.cssQuery, undefined, undefined, 190),
+    new Animation(lapButton.cssQuery, undefined, undefined, 190),
+
+    new Animation(Display.milliseconds.cssQuery, 'rotate', setLifespan(), 10), // <-- TESTED test function
+    new Animation(Display.seconds.cssQuery, 'swing', undefined, 10),
+    new Animation(Display.minutes.cssQuery, undefined, undefined, 300)
 ];
 //-----------------------------------------
 (() => {    // INIT
@@ -46,9 +59,12 @@ const Animations = [
 //-----------------------------------------
 function main(timestamp){ // Stopwatch Loop
     
-    Display.milliseconds.htmlElement.innerText = (MainTimer.Value.Milliseconds == 10 || MainTimer.Value.Milliseconds == 1000) ? 0 : MainTimer.Value.Milliseconds;
-    Display.seconds.htmlElement.innerText = (MainTimer.Value.Seconds);
-    Display.minutes.htmlElement.innerText = (MainTimer.Value.Minutes);
+    Display.milliseconds.htmlElement.innerText = (MainTimer.Value.Milliseconds == 10) ? ('00')
+                                                : (MainTimer.Value.Milliseconds == 1000) ? (990/10) 
+                                                : (MainTimer.Value.Milliseconds < 10) ? (`0${MainTimer.Value.Milliseconds/10}`)
+                                                : (MainTimer.Value.Milliseconds/10);
+    Display.seconds.htmlElement.innerText = (MainTimer.Value.Seconds < 10) ? (`0${MainTimer.Value.Seconds}`) : MainTimer.Value.Seconds;
+    Display.minutes.htmlElement.innerText = (MainTimer.Value.Minutes < 10) ? (`0${MainTimer.Value.Minutes}`) : MainTimer.Value.Minutes;
 //_____________________________________
     window.requestAnimationFrame(main);
 }
